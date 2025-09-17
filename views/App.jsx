@@ -1,18 +1,36 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import CardGrid from "../components/CardGrid";
+import ReactMarkdown from 'react-markdown'
 import Overview from "./Overview";
 import "./index.css";
 
-// Docs page placeholder
+
 function Docs() {
+  const [markdown, setMarkdown] = useState('');
+
+  useEffect(() => {
+    fetch('https://raw.githubusercontent.com/jaykmarBCET/mernjs/main/readme.md')
+      .then(res => res.text())
+      .then(text => setMarkdown(text));
+  }, []);
+
   return (
-    <div className="p-10 text-center">
-      <h1 className="text-4xl font-bold text-green-400">📖 Docs</h1>
-      <p className="mt-4 text-gray-300">Documentation coming soon...</p>
+    <div className="p-10 bg-gray-900 min-h-screen">
+      <h1 className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-400 to-pink-500 animate-text">
+        📖 MERN Docs
+      </h1>
+      <p className="mt-4 text-lg text-yellow-300">
+        Documentation loaded directly from README.md
+      </p>
+
+      <div className="mt-10 max-w-4xl mx-auto prose prose-invert prose-headings:text-pink-400 prose-code:bg-gray-800 prose-code:text-green-400 prose-blockquote:border-l-pink-500 prose-blockquote:text-pink-300">
+        <ReactMarkdown>{markdown}</ReactMarkdown>
+      </div>
     </div>
   );
 }
+
 
 // GitHub page placeholder
 function Github() {
@@ -20,7 +38,7 @@ function Github() {
     <div className="p-10 text-center">
       <h1 className="text-4xl font-bold text-blue-400">🌍 GitHub</h1>
       <p className="mt-4 text-gray-300">
-        Visit the repo at <a href="https://github.com/" className="underline text-green-400">GitHub</a>
+        Visit the repo at <a href="https://github.com/jaykmarBCET/mernjs/blob/main/readme.md" className="underline text-green-400">GitHub</a>
       </p>
     </div>
   );

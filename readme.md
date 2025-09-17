@@ -1,8 +1,3 @@
-Got it 👍 — here’s your **complete `DOCS.md`** file for your custom **MernJS framework-style boilerplate**.
-
----
-
-```markdown
 # ⚡ MernJS Framework
 
 **MernJS** is a lightweight framework-style boilerplate built on the **MERN stack**.  
@@ -71,7 +66,6 @@ It merges **Express + React (Vite)** seamlessly in a single runtime, without req
 
 - **roots/**  
   Registers all routers & middlewares.  
-  Keeps `server.js` clean.
 
 - **routes/**  
   Defines endpoints, e.g. `/api/user`.
@@ -146,7 +140,8 @@ export default app;
 
 ### 5. Server (`server.js`)
 
- - do not modify
+ - Do not modify 
+ - If you need to configure middleware then you must add middleware in root/root.config.js
 
 ### 6. Frontend (`views/App.jsx`)
 
@@ -184,10 +179,10 @@ npm install
 ### Start Dev (no build needed 🚀)
 
 ```sh
-npm run dev
+npm run dev or start
 ```
 
-👉 Both **API** and **Frontend** run on `http://localhost:3000`
+👉 Both **API** and **Frontend** run on `http://localhost:4000`
 
 ---
 
@@ -197,7 +192,7 @@ Unlike normal MERN apps, **MernJS does not require build**.
 
 * Express runs backend APIs
 * Vite serves frontend in middleware mode
-* Just host `npm run dev` or run `node server.js` in production
+* Just host `npm install` , `npm run dev` or run `npm run start` in production
 
 ---
 
@@ -215,9 +210,3 @@ Unlike normal MERN apps, **MernJS does not require build**.
 Built with **MongoDB, Express, React, Node.js**
 Customized into a framework-style starter called **MernJS** ⚡
 
-```
-
----
-
-Do you also want me to prepare a **README.md (short version)** for GitHub (so it looks like a professional framework repo), or should this full **DOCS.md** be enough?
-```
