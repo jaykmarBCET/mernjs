@@ -1,6 +1,4 @@
-Got it 👍 — here’s your **complete `DOCS.md`** file for your custom **MernJS framework-style boilerplate**.
 
----
 
 ```markdown
 # ⚡ MernJS Framework
