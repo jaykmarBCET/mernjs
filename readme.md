@@ -215,7 +215,4 @@ Customized into a framework-style starter called **MernJS** ⚡
 
 ```
 
----
 
-Do you also want me to prepare a **README.md (short version)** for GitHub (so it looks like a professional framework repo), or should this full **DOCS.md** be enough?
-```
