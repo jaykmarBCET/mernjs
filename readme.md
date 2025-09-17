@@ -10,7 +10,6 @@ It merges **Express + React (Vite)** seamlessly in a single runtime, without req
 
 ## 📂 Project Structure
 
-```
 
 📦 mernjs-app
 ├── components/       # Reusable React components
