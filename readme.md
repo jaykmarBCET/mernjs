@@ -181,7 +181,7 @@ npm install
 ### Start Dev (no build needed 🚀)
 
 ```sh
-npm run dev
+npm run dev or start
 ```
 
 👉 Both **API** and **Frontend** run on `http://localhost:3000`
