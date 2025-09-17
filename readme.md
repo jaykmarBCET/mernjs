@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+
+
+```markdown
+>>>>>>> 584625e78d2f5ba9fe6c391e991ab72d613d9305
 # ⚡ MernJS Framework
 
 **MernJS** is a lightweight framework-style boilerplate built on the **MERN stack**.  
@@ -7,7 +13,6 @@ It merges **Express + React (Vite)** seamlessly in a single runtime, without req
 
 ## 📂 Project Structure
 
-```
 
 📦 mernjs-app
 ├── components/       # Reusable React components
@@ -210,3 +215,9 @@ Unlike normal MERN apps, **MernJS does not require build**.
 Built with **MongoDB, Express, React, Node.js**
 Customized into a framework-style starter called **MernJS** ⚡
 
+<<<<<<< HEAD
+=======
+```
+
+
+>>>>>>> 584625e78d2f5ba9fe6c391e991ab72d613d9305
