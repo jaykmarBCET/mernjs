@@ -34,6 +34,16 @@ export default function CardGrid() {
         desc="REST APIs structured with versioning and best practices." 
         icon="🌍"
       />
+      <Card
+        title={"🔐 Authentication System"}
+        desc={" Build in (register,login,recover,delete,otp,) Comming soon"}
+        icon={"🔐"}
+      />
+      <Card
+        title={"Prisma ORM"}
+        desc={"Single ORM for (SQL and NoSQl"}
+        icon={""}
+       />
     </div>
   );
 }

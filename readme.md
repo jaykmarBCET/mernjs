@@ -48,14 +48,19 @@ It merges **Express + React (Vite)** seamlessly in a single runtime, without req
 ├── .env
 └── DOCS.md           # Documentation
 
-````
 
+```
+## ENV
+```env
+DATABASE_URL = mongodb://127.0.0.1:27017/myDatabase
+VITE_PUBLIC_API_URL = hello  # 
+MODE=production
+```
 ---
 
 ## 🚀 Features
 
 - ✅ Express + React (Vite) running in **one server**
-- ✅ **No CORS / No build step required**
 - ✅ **MVC pattern** (Models, Controllers, Routes)
 - ✅ **React frontend with TailwindCSS**
 - ✅ **MongoDB with Mongoose**
@@ -187,6 +192,13 @@ npm install
 npm run dev or start
 ```
 
+### Production Mode
+```sh
+npm install
+npm run build
+npm run start
+```
+
 👉 Both **API** and **Frontend** run on `http://localhost:4000`
 
 ---
@@ -204,9 +216,8 @@ Unlike normal MERN apps, **MernJS does not require build**.
 ## 🧩 Next Steps
 
 * Add `auth.route.js` for authentication
-* Add `docs.route.js` for framework docs page
 * Extend `controllers/` with CRUD logic
-* Use `react-router-dom` for multipage frontend
+
 
 ---
 

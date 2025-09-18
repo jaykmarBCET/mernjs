@@ -30,7 +30,7 @@ async function startServer() {
       try {
          fs.access(distPath); // checks if folder exists & is accessible
       } catch (err) {
-        console.log("Run `npm run build` first!");
+        console.log(chalk.red("Run `npm run build` first!"));
         throw new Error("Please build first");
       }
       res.sendFile(path.join(distPath, "index.html"));
