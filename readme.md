@@ -63,7 +63,6 @@ MODE=production
 - ✅ Express + React (Vite) running in **one server**
 - ✅ **MVC pattern** (Models, Controllers, Routes)
 - ✅ **React frontend with TailwindCSS**
-- ✅ **MongoDB with Mongoose**
 - ✅ **Scalable structure for large apps**
 
 ---
