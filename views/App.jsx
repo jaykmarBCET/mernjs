@@ -2,8 +2,6 @@ import React,{useEffect,useState} from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import CardGrid from "../components/CardGrid";
 import ReactMarkdown from 'react-markdown'
-import Overview from "./Overview";
-import "./index.css";
 
 
 function Docs() {

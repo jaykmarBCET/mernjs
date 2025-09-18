@@ -7,8 +7,9 @@
   "type": "module",
   "main": "server",
   "scripts": {
-    "start": "node server.js",
+    "start": "node --watch server.js",
     "install": "npm install",
+    "build":"vite build",
     "dev": "nodemon server.js"
   },
   "dependencies": {
