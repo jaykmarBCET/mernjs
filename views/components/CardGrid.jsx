@@ -36,14 +36,10 @@ export default function CardGrid() {
       />
       <Card
         title={"🔐 Authentication System"}
-        desc={" Build in (register,login,recover,delete,otp,) Comming soon"}
+        desc={" Build in (register,login,update,currentUser) with fully cache system very fast access of current user and verify with middleware"}
         icon={"🔐"}
       />
-      <Card
-        title={"Prisma ORM"}
-        desc={"Single ORM for (SQL and NoSQl"}
-        icon={""}
-       />
+      
     </div>
   );
 }

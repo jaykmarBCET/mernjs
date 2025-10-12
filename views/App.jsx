@@ -2,6 +2,9 @@ import React,{useEffect,useState} from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import CardGrid from "./components/CardGrid";
 import ReactMarkdown from 'react-markdown'
+import Login from './pages/Login'
+import Register from "./pages/Register";
+
 
 
 function Docs() {
@@ -54,6 +57,8 @@ export default function App() {
             <Link to="/features" className="hover:text-green-400 transition">Features</Link>
             <Link to="/docs" className="hover:text-green-400 transition">Docs</Link>
             <Link to="/github" className="hover:text-green-400 transition">GitHub</Link>
+            <Link to="/login" className="hover:text-green-400 transition">Login</Link>
+            <Link to="/register" className="hover:text-green-400 transition">Register</Link>
           </div>
         </nav>
 
@@ -100,6 +105,8 @@ export default function App() {
           />
           <Route path="/docs" element={<Docs />} />
           <Route path="/github" element={<Github />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
 
         {/* Footer */}

@@ -1,233 +1,167 @@
-<<<<<<< HEAD
-=======
 
+-----
 
-```markdown
->>>>>>> 584625e78d2f5ba9fe6c391e991ab72d613d9305
 # ⚡ MernJS Framework
 
-**MernJS** is a lightweight framework-style boilerplate built on the **MERN stack**.  
-It merges **Express + React (Vite)** seamlessly in a single runtime, without requiring separate builds or CORS setup.
+**MernJS** is a lightweight, full-stack boilerplate built on the **MERN stack**. It is designed for rapid development by seamlessly integrating an **Express.js** backend and a **React (Vite)** frontend into a single, unified server runtime. This unique architecture eliminates the need for separate builds or complex CORS configurations.
 
----
+-----
 
-## 📂 Project Structure
+## Key Features
 
+  * **Unified Runtime**: A single `node` process serves both the backend API and the React frontend, simplifying development and deployment.
+  * **Modern Authentication**: Secure, token-based authentication using **JSON Web Tokens (JWT)** with middleware-protected routes.
+  * **High-Performance Caching**: A built-in, Redis-style in-memory cache for user data reduces database lookups and accelerates API responses.
+  * **Efficient State Management**: Centralized frontend state management powered by **Zustand**, offering a simple and scalable solution.
+  * **Streamlined Tooling**: Built with modern tools including **Vite** for a fast frontend development experience and **TailwindCSS** for utility-first styling.
+  * **Developer-Friendly**: A single `package.json` manages all dependencies, and a unified development command (`npm run dev`) provides hot-reloading for both the server and the client.
 
-📦 mernjs-app
-├── components/       # Reusable React components
-│   ├── Card.jsx
-│   ├── CardGrid.jsx
-│   └── UserCard.jsx
+-----
+
+## Getting Started
+
+Follow these steps to get your development environment up and running.
+
+### 1\. Prerequisites
+
+  * [Node.js](https://nodejs.org/) (v18.x or later)
+  * [MongoDB](https://www.mongodb.com/) (local or cloud instance)
+
+### 2\. Installation & Setup
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone  https://github.com/jaykmarBCET/mernjs.git
+    cd mernjs-app
+    ```
+
+2.  **Install dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+3.  **Configure Environment Variables:**
+    Create a `.env` file in the root directory by copying the example file:
+
+    ```bash
+    cp .env.example .env
+    ```
+
+    Update the `.env` file with your specific configuration:
+
+    ```env
+    # MongoDB Connection URI
+    DATABASE_URL=mongodb://127.0.0.1:27017/myDatabase
+
+    # The public URL for the Vite frontend to communicate with the API
+    VITE_PUBLIC_API_URL=http://localhost:4000
+
+    # JWT Configuration
+    JWT_SECRET=your_super_secret_jwt_key
+    JWT_EXPIRES_IN=7d
+    ```
+
+### 3\. Running the Application
+
+  * **Development Mode:**
+    Run the server with hot-reloading for both backend and frontend.
+
+    ```bash
+    npm run dev
+    ```
+
+    The application will be available at `http://localhost:4000`.
+
+  * **Production Mode:**
+    Build the optimized frontend assets and start the production server.
+
+    ```bash
+    # Create an optimized production build
+    npm run build
+
+    # Start the server
+    npm start
+    ```
+
+-----
+
+## Project Structure
+
+The project is organized into a modular structure to maintain a clean and scalable codebase.
+
+```
+📦 mernjs-app/
+├── cache/              # In-memory caching layer (e.g., user sessions)
+├── config/             # Database connection and environment configuration
+├── controllers/        # Business logic for handling API requests
+├── middleware/         # Custom middleware (e.g., JWT authentication)
+├── models/             # Mongoose schemas and models for MongoDB
+├── routes/             # API route definitions
+├── roots/              # Centralized configuration for mounting all routes
+├── views/              # The React (Vite) frontend application
+│   ├── components/     # Reusable React components
+│   ├── pages/          # Page components (e.g., Login, Register)
+│   ├── store/          # Zustand store for global state management
+│   ├── App.jsx         # Root React component
+│   └── main.jsx        # Frontend application entry point
 │
-├── config/           # Configuration files
-│   └── db.js
-│
-├── controllers/      # Handler functions (Business logic)
-│   └── user.controller.js
-│
-├── models/           # Database models (Mongoose)
-│   └── User.js
-│
-├── roots/            # Root config (routes, middlewares)
-│   └── roots.config.js
-│
-├── routes/           # API routes
-│   └── user.route.js
-│
-├── views/            # Frontend (React + Vite)
-│   ├── App.jsx
-│   ├── Overview\.jsx
-│   ├── main.jsx
-│   ├── index.css
-│   └── index.html
-│
-├── server.js         # Entry point (DO NOT MODIFY)
-├── tailwind.config.js
-├── vite.config.js
-├── .env
-└── DOCS.md           # Documentation
-
-
-```
-## ENV
-```env
-DATABASE_URL = mongodb://127.0.0.1:27017/myDatabase
-VITE_PUBLIC_API_URL = hello  # 
-MODE=production
-```
----
-
-## 🚀 Features
-
-- ✅ Express + React (Vite) running in **one server**
-- ✅ **MVC pattern** (Models, Controllers, Routes)
-- ✅ **React frontend with TailwindCSS**
-- ✅ **Scalable structure for large apps**
-
----
-
-## ⚙️ How it Works
-
-- **server.js**  
-  Starts Express + Vite in middleware mode.  
-  Serves both API (`/api/...`) and React frontend (`/`).
-
-- **roots/**  
-  Registers all routers & middlewares.  
-
-- **routes/**  
-  Defines endpoints, e.g. `/api/user`.
-
-- **controllers/**  
-  Contains business logic (e.g. get user, create user).
-
-- **models/**  
-  Database schema and ORM (Mongoose).
-
-- **views/**  
-  React frontend, served directly by Vite middleware.
-
----
-
-## 📌 Example: User Flow
-
-### 1. Model (`models/User.js`)
-```js
-import mongoose from "mongoose";
-
-const userSchema = new mongoose.Schema({
-  name: String,
-  email: { type: String, unique: true }
-});
-
-const User = mongoose.model("User", userSchema);
-export default User;
-````
-
-### 2. Controller (`controllers/user.controller.js`)
-
-```js
-import User from "../models/User.js";
-
-export const getUser = async (req, res) => {
-  const user = await User.findOne() || { name: "Guest" };
-  res.json(user);
-};
-
-export const createUser = async (req, res) => {
-  const user = new User(req.body);
-  await user.save();
-  res.status(201).json(user);
-};
+├── server.js           # Main application entry point
+├── tailwind.config.js  # TailwindCSS configuration
+├── vite.config.js      # Vite configuration
+└── .env                # Environment variables (not version controlled)
 ```
 
-### 3. Route (`routes/user.route.js`)
+-----
 
-```js
-import express from "express";
-import { getUser, createUser } from "../controllers/user.controller.js";
+## Authentication System
 
-const router = express.Router();
-router.get("/", getUser);
-router.post("/", createUser);
-export default router;
+The framework includes a complete authentication flow using JWT.
+
+1.  A user registers (`/api/user/profile/register`) or logs in (`/api/user/profile/login`).
+2.  Upon successful login, the server generates a JWT and sends it to the client.
+3.  The frontend stores the token (e.g., in an HTTP-only cookie or local storage) and uses it in the `Authorization` header for subsequent requests.
+4.  The `authMiddleware` intercepts requests to protected routes, verifies the token, and retrieves the user's data from the cache or database.
+5.  On the frontend, the **Zustand** store manages the user's authentication state across the application.
+
+### API Endpoints
+
+| Method | Endpoint             | Description                         | Protected |
+| :----- | :------------------- | :---------------------------------- | :-------: |
+| `POST` | `/api/user/profile/register` | Register a new user.                |    No     |
+| `POST` | `/api/user/profile/login`    | Authenticate a user and return JWT. |    No     |
+| `GET`  | `/api/user/profile`  | Get the current user's profile.     |    Yes    |
+| `PUT`  | `/api/user//profile/update`  | Update the current user's profile.  |    Yes    |
+
+-----
+
+## Deployment
+
+The unified build process simplifies deployment. The `npm run build` command compiles the React frontend into a static `dist` directory, which is then served by the Express application. To deploy, simply install dependencies and start the server.
+
+```bash
+npm install --production
+npm start
 ```
 
-### 4. Root Config (`roots/roots.config.js`)
+This single command is all that is needed to run the entire full-stack application on a server.
 
-```js
-import express from "express";
-import userRoutes from "../routes/user.route.js";
+-----
 
-const app = express();
-app.use(express.json());
-app.use("/api/user", userRoutes);
+## Roadmap & Contributing
 
-export default app;
-```
+We welcome contributions to enhance the MernJS framework. Pull requests and issues are highly encouraged.
 
-### 5. Server (`server.js`)
+### Future Enhancements
 
- - Do not modify 
- - If you need to configure middleware then you must add middleware in root/root.config.js
+  * [ ] Add toast notifications for user feedback.
+  * [ ] Implement a robust logout and session expiration flow.
+  * [ ] Introduce role-based access control (RBAC) for routes.
+  * [ ] Integrate OAuth providers (e.g., Google, GitHub).
 
-### 6. Frontend (`views/App.jsx`)
+-----
 
-```jsx
-import React, { useEffect, useState } from "react";
+## License
 
-export default function App() {
-  const [name, setName] = useState("");
-
-  useEffect(() => {
-    fetch("/api/user")
-      .then(res => res.json())
-      .then(data => setName(data.name));
-  }, []);
-
-  return (
-    <div className="text-center p-6">
-      <h1 className="text-4xl font-bold text-green-400">MernJS ⚡</h1>
-      <p className="mt-4 text-lg">Hello, {name}!</p>
-    </div>
-  );
-}
-```
-
----
-
-## 🛠️ Commands
-
-### Install
-
-```sh
-npm install
-```
-
-### Start Dev (no build needed 🚀)
-
-```sh
-npm run dev or start
-```
-
-### Production Mode
-```sh
-npm install
-npm run build
-npm run start
-```
-
-👉 Both **API** and **Frontend** run on `http://localhost:4000`
-
----
-
-## 📦 Deployment
-
-Unlike normal MERN apps, **MernJS does not require build**.
-
-* Express runs backend APIs
-* Vite serves frontend in middleware mode
-* Just host `npm install` , `npm run dev` or run `npm run start` in production
-
----
-
-## 🧩 Next Steps
-
-* Add `auth.route.js` for authentication
-* Extend `controllers/` with CRUD logic
-
-
----
-
-## ❤️ Credits
-
-Built with **MongoDB, Express, React, Node.js**
-Customized into a framework-style starter called **MernJS** ⚡
-
-<<<<<<< HEAD
-=======
-```
-
-
->>>>>>> 584625e78d2f5ba9fe6c391e991ab72d613d9305
+This project is licensed under the **MIT License**. See the `LICENSE` file for details.

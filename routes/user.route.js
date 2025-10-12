@@ -4,7 +4,7 @@ import { authVerify } from '../middleware/authMiddleware.js'
 
 
 const userRoute = express.Router()
-
+userRoute.use(express.json())
 userRoute.get("/profile",authVerify,getUserProfile)
 userRoute.post("/profile/register",registerUser)
 userRoute.post("/profile/login",loginUser)

@@ -40,7 +40,7 @@ const registerUser = async (req, res) => {
     // ✅ Cache user after creation
     updateUserInCache(newUser._id.toString(), userPayload);
 
-    return res.status(201).json({
+    return res.status(201).cookie("token",token,{sameSite:true,secure:true}).json({
       message: "Registration successful",
       user: userPayload,
       token,
@@ -82,7 +82,7 @@ const loginUser = async (req, res) => {
     // ✅ Update cache
     updateUserInCache(user._id.toString(), userPayload);
 
-    return res.status(200).json({
+    return res.status(200).cookie("token",token,{sameSite:true,secure:true}).json({
       message: "Login successful",
       user: userPayload,
       token,
