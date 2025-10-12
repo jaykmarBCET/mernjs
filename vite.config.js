@@ -9,4 +9,5 @@ export default defineConfig({
     outDir: "../dist", // ✅ keep dist at project root
     emptyOutDir: true,
   },
+  
 });

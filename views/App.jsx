@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import CardGrid from "../components/CardGrid";
+import CardGrid from "./components/CardGrid";
 import ReactMarkdown from 'react-markdown'
 
 
@@ -48,7 +48,7 @@ export default function App() {
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
         {/* Navbar */}
         <nav className="flex items-center justify-between px-8 py-4 border-b border-gray-700">
-          <h1 className="text-2xl font-bold text-green-400">MernJS ⚡</h1>
+          <h1 className="text-2xl font-bold text-green-400">MernJS <img src="./assets/images/logo.png" alt="Logo" className="h-8 inline-block" /></h1>
           <div className="space-x-6">
             <Link to="/" className="hover:text-green-400 transition">Home</Link>
             <Link to="/features" className="hover:text-green-400 transition">Features</Link>
@@ -65,8 +65,8 @@ export default function App() {
               <>
                 {/* Hero Section */}
                 <section id="home" className="flex flex-col items-center justify-center text-center py-20 px-6">
-                  <h1 className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 drop-shadow-lg">
-                    Welcome to MernJS
+                  <h1 className="text-6xl flex-wrap items-center gap-5 justify-center flex font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 drop-shadow-lg">
+                    Welcome to MernJS <img className="w-30 h-30" src="./assets/images/logo.png" alt="" />
                   </h1>
                   <p className="mt-6 text-lg text-gray-300 max-w-2xl">
                     A modern <span className="text-green-400">MERN</span> framework that runs{" "}
