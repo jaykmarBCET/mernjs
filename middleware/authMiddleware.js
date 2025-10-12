@@ -33,4 +33,4 @@ const authVerify = async (req, res, next) => {
   }
 };
 
-export default authVerify;
+export { authVerify}
