@@ -4,6 +4,7 @@ import CardGrid from "./components/CardGrid";
 import ReactMarkdown from 'react-markdown'
 import Login from './pages/Login'
 import Register from "./pages/Register";
+import Temp from "./components/Temp";
 
 
 
@@ -71,8 +72,9 @@ export default function App() {
                 {/* Hero Section */}
                 <section id="home" className="flex flex-col items-center justify-center text-center py-20 px-6">
                   <h1 className="text-6xl flex-wrap items-center gap-5 justify-center flex font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 drop-shadow-lg">
-                    Welcome to MernJS <img className="w-30 h-30" src="./assets/images/logo.png" alt="" />
+                    Welcome to MernJS <img className="w-30 h-30" src="/assets/images/logo.png" alt="" />
                   </h1>
+                  <Temp/>
                   <p className="mt-6 text-lg text-gray-300 max-w-2xl">
                     A modern <span className="text-green-400">MERN</span> framework that runs{" "}
                     <span className="text-blue-400">React</span> +{" "}

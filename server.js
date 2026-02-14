@@ -17,6 +17,8 @@ async function startServer() {
   const app = express();
   app.use("/api", Root);
 
+  app.use("/assets", express.static(path.join(__dirname, "views/assets")));
+   
   if (process.env.MODE === "production") {
 
     const distPath = path.join(__dirname, "dist");
